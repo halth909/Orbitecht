@@ -1,0 +1,7 @@
+name=Orbitecht
+author=Thomas Hall
+description=Description pending.
+bundleID=com.tomhall.orbitecht
+version=0.8
+buildNumber=8
+imagePath=Launcher
