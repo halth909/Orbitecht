@@ -46,16 +46,6 @@ Images.railCornerH = railTable:getImage(3, 1)
 Images.railCornerHSwitch = railTable:getImage(3, 2)
 Images.railLevelCrossing = railTable:getImage(4, 1)
 
-local minecartTable = playdate.graphics.imagetable.new("Images/minecarts")
-
-for i = 1, MINECART_COUNT do
-    Images.minecartThumbs[i] = minecartTable:getImage(1,i)
-    Images.minecartFrames[i] = {}
-    for j = 1, MINECART_FRAMES do
-        Images.minecartFrames[i][j] = minecartTable:getImage(j + 1,i)
-    end
-end
-
 local placeholderTable = playdate.graphics.imagetable.new("Images/placeholder")
 Images.placeholder = placeholderTable:getImage(1, 1)
 

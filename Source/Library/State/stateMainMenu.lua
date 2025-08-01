@@ -1,5 +1,6 @@
 import '../Audio/music.lua'
 import '../Assets/slides.lua'
+import 'stateGameplay.lua'
 
 local gfx = playdate.graphics
 local animator = gfx.animator
@@ -8,13 +9,8 @@ local easingFunctions = playdate.easingFunctions
 StateMainMenu = {
     options = {
         {
-            label = "Adventure",
-            callback = StateSingleplayer.push,
-            enabled = true,
-        },
-        {
-            label = "Arena",
-            callback = StateRoomSelect.push,
+            label = "Start",
+            callback = StateGameplay.push,
             enabled = true,
         },
         {
@@ -38,8 +34,6 @@ StateMainMenu = {
         State.reset()
         State.uiAnimator = animator.new(2000, 1000, 0, easingFunctions.outCirc)
 
-        StateMainMenu.newRoom()
-        Minecarts.loadMainMenu()
         MusicPlayer.playMainMenu()
 
         StateMainMenu.currentIndex = 1
@@ -48,19 +42,8 @@ StateMainMenu = {
 
         function playdate.update()
             State.preUpdate()
-
-            Collectables.update()
-            Minecarts.update()
-
-            local c = State.uiAnimator:currentValue() / 1000
-            local x = 100 * c
-            local y = 150 * c
-            RoomCurrent.draw(35 + x, 30 + y)
-
             UIMainMenu.draw()
             State.postUpdate()
-
-            -- Images.test:draw(0, 0)
         end
     end,
     previous = function()
@@ -94,14 +77,4 @@ StateMainMenu = {
     select = function()
         StateMainMenu.options[StateMainMenu.currentIndex].callback()
     end,
-    newRoom = function()
-        local nextRoom = StateMainMenu.currentRoom
-
-        while nextRoom == StateMainMenu.currentRoom do
-            nextRoom = math.random(#Rooms.mainMenu)
-        end
-
-        StateMainMenu.currentRoom = nextRoom
-        RoomCurrent.load(Rooms.mainMenu[nextRoom])
-    end
 }

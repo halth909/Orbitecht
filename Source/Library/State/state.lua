@@ -1,38 +1,12 @@
-import '../Audio/music.lua'
-
-import 'stateRoomSelect.lua'
-import 'stateCartSelect.lua'
-import 'StateFloorGeneratorTest.lua'
-import 'stateMultiplayer.lua'
-import 'stateScoreboard.lua'
-import 'stateSingleplayer.lua'
-import 'stateSlides.lua'
+import '../timer.lua'
 import 'stateMainMenu.lua'
-
-import 'stateRoomGen.lua'
+import 'stateGameplay.lua'
 
 local gfx = playdate.graphics
 
 State = {
     reset = function()
-        RoomCurrent.unload()
-        Minecarts.unload()
-        Barrels.unload()
-        Ghosts.unload()
-        
-        MusicPlayer.stop()
         InputHelp.hide()
-        UIMultiplayer.floatingTexts = {}
-
-        if StateCartSelect.countdown ~= nil then
-            Timer.cancel(StateCartSelect.countdown)
-            StateCartSelect.countdown = nil
-        end
-
-        if StateMultiplayer.timer ~= nil then
-            Timer.cancel(StateMultiplayer.timer)
-            StateMultiplayer.timer = nil
-        end
     end,
     preUpdate = function()
         Timer.update()

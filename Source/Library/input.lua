@@ -36,8 +36,6 @@ Input = {
         menu:addCheckmarkMenuItem("debug", false, function(value)
             DEBUG = value
         end)
-
-        menu:addMenuItem("room gen", StateRoomGen.push)
     end,
     pushSlides = function()
         playdate.inputHandlers.pop()
@@ -55,123 +53,12 @@ Input = {
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
     end,
-    pushRoomGen = function()
+    pushGameplay = function()
         playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({})
 
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
         menu:addMenuItem("game menu", StateMainMenu.push)
-    end,
-    pushSingleplayer = function()
-        playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({
-            upButtonDown = function()
-                print("player up")
-                Singleplayer.direction(0, -1)
-            end,
-            rightButtonDown = function()
-                print("player right")
-                Singleplayer.direction(1, 0)
-            end,
-            downButtonDown = function()
-                print("player down")
-                Singleplayer.direction(0, 1)
-            end,
-            leftButtonDown = function()
-                print("player left")
-                Singleplayer.direction(-1, 0)
-            end,
-            BButtonDown = function()
-                print("player b")
-                Singleplayer.switch()
-            end,
-            AButtonDown = function()
-                print("player a")
-                Singleplayer.jump()
-            end,
-        })
-
-        local menu = playdate.getSystemMenu()
-        menu:removeAllMenuItems()
-        menu:addMenuItem("game menu", StateMainMenu.push)
-    end,
-    pushRoomSelect = function()
-        playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({
-            AButtonDown = function()
-                StateCartSelect.push()
-                Event.menuAccept()
-            end,
-            BButtonDown = function()
-                StateMainMenu.push()
-                Event.menuReturn()
-            end,
-            downButtonDown = function()
-                StateRoomSelect.incrementRoom()
-                Event.menuNext()
-            end,
-        })
-
-        local menu = playdate.getSystemMenu()
-        menu:removeAllMenuItems()
-
-        menu:addMenuItem("game menu", StateMainMenu.push)
-    end,
-    pushCartSelect = function()
-        playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({
-            downButtonDown = function()
-                print("player 1 press")
-                StateCartSelect.incrementMinecart(1)
-                SFX.menuSelect.play(1)
-            end,
-            BButtonDown = function()
-                print("player 2 press")
-                StateCartSelect.incrementMinecart(2)
-                SFX.menuSelect.play(2)
-            end,
-            AButtonDown = function()
-                print("player 3 press")
-                StateCartSelect.incrementMinecart(3)
-                SFX.menuSelect.play(3)
-            end,
-        })
-
-        local menu = playdate.getSystemMenu()
-        menu:removeAllMenuItems()
-
-        menu:addMenuItem("game menu", StateMainMenu.push)
-        menu:addMenuItem("select arena", StateRoomSelect.push)
-    end,
-    pushMultiplayer = function()
-        playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({
-            downButtonDown = function()
-                print("player 1 press")
-                Multiplayers.switch(1)
-            end,
-            BButtonDown = function()
-                print("player 2 press")
-                Multiplayers.switch(2)
-            end,
-            AButtonDown = function()
-                print("player 3 press")
-                Multiplayers.switch(3)
-            end,
-        })
-
-        local menu = playdate.getSystemMenu()
-        menu:removeAllMenuItems()
-
-        if DEBUG then
-            menu:addMenuItem("*skip*", StateScoreboard.push)
-        else
-            menu:addMenuItem("game menu", StateMainMenu.push)
-        end
-
-        menu:addMenuItem("select arena", StateRoomSelect.push)
-        menu:addMenuItem("reset room", StateMultiplayer.push)
     end,
     pushScoreboard = function()
         playdate.inputHandlers.pop()

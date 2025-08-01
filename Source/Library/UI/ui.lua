@@ -1,9 +1,5 @@
+import 'uiGameplay.lua'
 import 'uiMainMenu.lua'
-import 'uiSingleplayer.lua'
-import 'uiRoomSelect.lua'
-import 'uiCartSelect.lua'
-import 'uiMultiplayer.lua'
-import 'uiScoreboard.lua'
 import 'uiSlides.lua'
 
 local gfx = playdate.graphics
@@ -23,22 +19,5 @@ UI = {
         image:draw(width - smm, m, gfx.kImageFlippedY)
         image:draw(m, 240 - smm, gfx.kImageFlippedX)
         image:draw(width - smm, 240 - smm)
-    end,
-    drawMultiplayerScores = function()
-        Images.bannerSideLarge:draw(0, 0)
-
-        local imageX = 10
-        local textX = 70
-        local textY = 4
-        local players = Multiplayers.getActive()
-        local y = 110 - 16 * #players
-
-        for i = 1, #players, 1 do
-            local player = players[i]
-
-            player.minecart.thumbnail:draw(imageX, y)
-            gfx.drawInvertedTextAligned(player.score, textX, y + textY, kTextAlignment.right)
-            y += 32
-        end
     end,
 }
