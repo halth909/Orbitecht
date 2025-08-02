@@ -4,45 +4,26 @@ import "Assets/Images"
 local gfx = playdate.graphics
 
 Bubbles = {
-    data = {},
-    active = {},
+    active = nil,
 
     -- bubbles functions
-    resolveCollisions = function(bubble, other)
-        if bubble == other then
-            return
-        end
-
-    end,
     load = function()
-
+        BubbleSpawner.load()
     end,
     update = function()
-        local updateBubble = Bubbles.updateBubble
-        local resolveCollisions = Bubbles.resolveCollisions
-
         local active = Bubbles.active
+        active.x += active.vx
+        active.y += active.vy
 
-        -- move
-        for i = 1, #active, 1 do
-            updateBubble(active[i])
-        end
+        active = BubbleGraph.resolveCollisions(active)
 
-        -- resolve collisions
-        for i = 1, #active, 1 do
-            for j = 1, #active, 1 do
-                resolveCollisions(active[i], active[j])
-            end
+        if active == nil then
+            print("test 1")
+            BubbleSpawner.spawn()
         end
     end,
     draw = function()
-        local drawBubble = Bubbles.drawBubble
-
-        local active = Bubbles.active
-        
-        for i = 1, #active, 1 do
-            drawBubble(active[i])
-        end
+        Bubbles.drawBubble(Bubbles.active)
     end,
     unload = function()
         Bubbles.active = {}
@@ -51,7 +32,39 @@ Bubbles = {
     -- bubble functions
     drawBubble = function(bubble)
         local x, y = bubble.x, bubble.y
-        gfx.drawCircleAtPoint(x, y, radius)
+        local offScreen = false
+        local ofx = 0
+        local ofy = 0
+
+        if x < 0 then
+            offScreen = true
+            x = 0
+            ofx = -1
+        elseif 400 < x then
+            offScreen = true
+            x = 400
+            ofx = 1
+        end
+
+        if y < 0 then
+            offScreen = true
+            y = 0
+            ofy = -1
+        elseif 240 < y then
+            offScreen = true
+            y = 240
+            ofy = 1
+        end
+
+        print(x, y)
+        gfx.setColor(gfx.kColorWhite)
+
+        if offScreen then
+            gfx.setLineWidth(1)
+            gfx.drawRect((x - ofx * 5 - 5), (y - ofy * 5 - 5), 10, 10, bubble.radius)
+        else
+            gfx.fillCircleAtPoint(x, y, bubble.radius)
+        end
     end,
 }
 

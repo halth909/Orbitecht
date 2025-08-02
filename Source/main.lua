@@ -14,7 +14,8 @@ import 'Library/extensions.lua'
 
 import 'Library/spinner.lua'
 import 'Library/bubbles.lua'
-import 'Library/graph.lua'
+import 'Library/bubbleSpawner.lua'
+import 'Library/bubbleGraph.lua'
 
 import 'Library/vfx.lua'
 
