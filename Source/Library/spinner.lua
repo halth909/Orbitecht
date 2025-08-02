@@ -4,14 +4,15 @@ import "Assets/Images"
 local gfx = playdate.graphics
 
 Spinner = {
-    angleDegrees = 0,
+    angleRadians = 0,
     update = function()
         if playdate:isCrankDocked() then
             playdate.ui.crankIndicator:draw()
             return
         end
         
-        Spinner.angleDegrees = playdate.getCrankPosition()
+        local degrees = playdate.getCrankPosition()
+        Spinner.angleRadians = math.rad(degrees)
     end,
     draw = function()
         local x = SPINNER_POSITION_X
@@ -21,9 +22,10 @@ Spinner = {
         gfx.drawCircleAtPoint(x, y, 90)
 
         local radius = SPINNER_RADIUS_INNER - 6
-        local radians = math.rad(Spinner.angleDegrees)
-        x = SPINNER_POSITION_X + math.cos(radians) * radius
-        y = SPINNER_POSITION_Y + math.sin(radians) * radius
+        local radians = Spinner.angleRadians
+        x, y = Coordinates.polarToCartesian(radius, radians)
+        x += SPINNER_POSITION_X
+        y += SPINNER_POSITION_Y
         gfx.setColor(gfx.kColorBlack)
         gfx.fillCircleAtPoint(x, y, 4)
     end,

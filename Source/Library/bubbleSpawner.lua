@@ -11,7 +11,7 @@ BubbleSpawner = {
         BubbleSpawner.flavors = 1
         BubbleSpawner.flavorVelocity = 1
         BubbleSpawner.speed = 2
-        BubbleSpawner.speedAcceleration = 1
+        BubbleSpawner.speedAcceleration = 0.3
 
         BubbleSpawner.spawn()
     end,
@@ -29,7 +29,7 @@ BubbleSpawner = {
             vy = vy * BubbleSpawner.speed
         }
 
-        printTable(Bubbles.active)
+        BubbleSpawner.speed += BubbleSpawner.speedAcceleration
     end,
     unload = function()
         Bubbles.active = nil

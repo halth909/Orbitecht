@@ -14,6 +14,7 @@ StateGameplay = {
             State.preUpdate()
 
             Spinner.update()
+            BubbleGraph.update()
             Bubbles.update()
 
             Spinner.draw()

@@ -12,6 +12,7 @@ import 'Library/constants.lua'
 import 'Library/saveData.lua'
 import 'Library/extensions.lua'
 
+import 'Library/coordinates.lua'
 import 'Library/spinner.lua'
 import 'Library/bubbles.lua'
 import 'Library/bubbleSpawner.lua'
