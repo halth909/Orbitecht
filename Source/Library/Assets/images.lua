@@ -2,5 +2,6 @@ import '../animator.lua'
 import '../constants.lua'
 
 Images = {
-    orbTable = playdate.graphics.imagetable.new("Images/orbs")
+    orbTable = playdate.graphics.imagetable.new("Images/orbs"),
+    offscreenTable = playdate.graphics.imagetable.new("Images/offscreen")
 }

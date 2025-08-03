@@ -75,11 +75,15 @@ Bubbles = {
         gfx.setColor(gfx.kColorWhite)
 
         if offScreen then
-            gfx.setLineWidth(1)
-            gfx.drawRect((x - ofx * 5 - 5), (y - ofy * 5 - 5), 10, 10, bubble.radius)
+            x -= 15 * ofx
+            y -= 15 * ofy
+            local bx, by = math.floor(2.1 + ofx), math.floor(2.1 + ofy)
+            local image = Images.offscreenTable:getImage(bx, by)
+            bx, by = x, y
+            image:drawCentered(bx, by)
         end
 
-        Images.orbTable:draw(x, y)
+        Images.orbTable:getImage(bubble.flavor):drawCentered(x, y)
     end,
 }
 

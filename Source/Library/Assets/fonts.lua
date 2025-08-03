@@ -1,5 +1,5 @@
 Fonts = {
-    mythic = playdate.graphics.font.new("Fonts/Mythic 2x")
+    alphaOne = playdate.graphics.font.new("Fonts/Alpha One")
 }
 
-playdate.graphics.setFont(Fonts.mythic)
+playdate.graphics.setFont(Fonts.alphaOne)

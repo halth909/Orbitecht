@@ -32,7 +32,7 @@ BubbleSpawner = {
         printTable(Bubbles.data)
 
         BubbleSpawner.flavors += BubbleSpawner.flavorVelocity
-        Bubble.flavors = math.min(BUBBLE_FLAVORS, BubbleSpawner.flavors)
+        BubbleSpawner.flavors = math.min(BUBBLE_FLAVORS, BubbleSpawner.flavors)
         BubbleSpawner.speed += BubbleSpawner.speedAcceleration
     end,
     unload = function()
