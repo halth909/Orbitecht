@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.1893044"
-     inkscape:cx="275.37105"
-     inkscape:cy="246.3625"
+     inkscape:zoom="0.5946522"
+     inkscape:cx="685.27452"
+     inkscape:cy="279.15477"
      inkscape:window-width="1512"
      inkscape:window-height="844"
      inkscape:window-x="0"
@@ -40,11 +40,11 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#848484;fill-opacity:1;stroke:none;stroke-width:6.85699;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="fill:#848484;fill-opacity:1;stroke:none;stroke-width:6.10701;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="rect1430"
-       width="253.89725"
+       width="201.39456"
        height="198.20975"
-       x="0.62923712"
+       x="53.131916"
        y="-2.2023296" />
     <rect
        style="fill:#000000;stroke-width:0.817549;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
@@ -80,5 +80,101 @@
        sodipodi:open="true"
        sodipodi:arc-type="arc"
        d="M 79.148892,65.047945 A 99.457222,99.729301 0 0 1 210.14136,20.987814 99.457222,99.729301 0 0 1 258.64769,150.71282 99.457222,99.729301 0 0 1 131.05709,203.87091 99.457222,99.729301 0 0 1 73.602505,77.874015" />
+    <rect
+       style="fill:#848484;fill-opacity:1;stroke:none;stroke-width:6.12721;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1430-7"
+       width="202.72939"
+       height="198.20975"
+       x="325.02963"
+       y="-3.4027293" />
+    <rect
+       style="fill:#000000;stroke-width:1.08755;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       id="rect184-5"
+       width="105.83334"
+       height="63.5"
+       x="325.31586"
+       y="52.916668"
+       inkscape:export-filename="Source/Launcher/card.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       x="342.8349"
+       y="75.611351"
+       id="text452-5"><tspan
+         sodipodi:role="line"
+         id="tspan450-4"
+         x="342.8349"
+         y="75.611351"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1">Orbitecht</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path1376-9-1"
+       sodipodi:type="arc"
+       sodipodi:cx="431.28833"
+       sodipodi:cy="127.1903"
+       sodipodi:rx="99.457222"
+       sodipodi:ry="99.729301"
+       sodipodi:start="3.8167253"
+       sodipodi:end="3.6759357"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 353.64963,64.8594 A 99.457222,99.729301 0 0 1 490.67856,47.193994 99.457222,99.729301 0 0 1 513.10693,183.89104 99.457222,99.729301 0 0 1 377.65651,211.17722 99.457222,99.729301 0 0 1 345.69511,76.400583" />
+    <rect
+       style="fill:#000000;stroke-width:1.08755;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       id="rect184-5-4"
+       width="105.83334"
+       height="63.5"
+       x="567.36969"
+       y="51.81134"
+       inkscape:export-filename="Source/Images/title_left.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       x="584.88873"
+       y="74.506027"
+       id="text452-5-8"><tspan
+         sodipodi:role="line"
+         id="tspan450-4-5"
+         x="584.88873"
+         y="74.506027"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1">O</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path1376-9-1-8"
+       sodipodi:type="arc"
+       sodipodi:cx="673.34216"
+       sodipodi:cy="126.08497"
+       sodipodi:rx="99.457222"
+       sodipodi:ry="99.729301"
+       sodipodi:start="3.8167253"
+       sodipodi:end="3.6759357"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 595.70346,63.754068 A 99.457222,99.729301 0 0 1 732.7324,46.088663 99.457222,99.729301 0 0 1 755.16076,182.78571 99.457222,99.729301 0 0 1 619.71034,210.07189 99.457222,99.729301 0 0 1 587.74894,75.295251" />
+    <rect
+       style="fill:#000000;stroke-width:1.08755;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       id="rect184-5-4-0"
+       width="105.83334"
+       height="63.5"
+       x="784.94434"
+       y="49.141716"
+       inkscape:export-filename="Source/Images/title_right.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       x="815.51611"
+       y="71.864624"
+       id="text452-5-8-6-0"><tspan
+         sodipodi:role="line"
+         id="tspan450-4-5-2-8"
+         x="815.51611"
+         y="71.864624"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1">rbitecht</tspan></text>
   </g>
 </svg>

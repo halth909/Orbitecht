@@ -1,9 +1,11 @@
 import '../timer.lua'
 import 'stateMainMenu.lua'
 import 'stateGameplay.lua'
+import 'stateScoreboard.lua'
 import 'stateSlides.lua'
 
 local gfx = playdate.graphics
+gfx.setBackgroundColor(gfx.kColorBlack)
 
 State = {
     reset = function()

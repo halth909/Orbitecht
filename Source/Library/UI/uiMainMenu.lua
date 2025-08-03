@@ -6,7 +6,7 @@ local dither = gfx.image.kDitherTypeBayer8x8
 UIMainMenu = {
     selectY = nil,
     draw = function()
-        UI.drawFrame(400)
+        -- UI.drawFrame(400)
 
         local titleAnimator = State.uiAnimator
         local c = titleAnimator:currentValue() / 1000
@@ -45,6 +45,6 @@ UIMainMenu = {
         Images.selected:draw(150, UIMainMenu.selectY + offset)
         gfx.setImageDrawMode(gfx.kDrawModeCopy)
 
-        UIBottomBanner.draw("⬇ SELECT   Ⓐ CONFIRM", 0, 10)
+        UIBottomBanner.draw("[⬇] SELECT   [A] CONFIRM", 0, 10)
     end
 }

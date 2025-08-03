@@ -53,7 +53,7 @@ UISlides = {
         local pageText = string.format("%d OF %d", StateSlides.page, #deck)
         gfx.drawInvertedTextAligned(pageText, 380, 205, kTextAlignment.right)
 
-        UI.drawFrame(400)
-        UIBottomBanner.draw("B RETURN   A CONTINUE", 0, 10)
+        -- UI.drawFrame(400)
+        UIBottomBanner.draw("[B] RETURN   [A] CONTINUE", 0, 10)
     end
 }

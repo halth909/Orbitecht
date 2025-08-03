@@ -1,6 +1,8 @@
 VFX = {
     inverted = false,
     invertedEnd = -1,
+    screenShake = false,
+    screenShakeEnd = -1,
     invert = function(duration)
         local endTime = playdate.getCurrentTimeMilliseconds() + duration
 
@@ -12,18 +14,52 @@ VFX = {
         VFX.inverted = true
         playdate.display.setInverted(true)
     end,
+    shakeScreen = function(duration)
+        local endTime = playdate.getCurrentTimeMilliseconds() + duration
+        
+        if endTime <= VFX.screenShakeEnd then
+            return
+        end
+
+        VFX.screenShakeEnd = endTime
+        VFX.screenShake = true
+    end,
     update = function()
-        if not VFX.inverted then
-            return
+        local updateInverted = function()
+            if not VFX.inverted then
+                return
+            end
+
+            local currentTime = playdate.getCurrentTimeMilliseconds()
+
+            if currentTime < VFX.invertedEnd then
+                return
+            end
+
+            VFX.inverted = false
+            playdate.display.setInverted(false)
         end
 
-        local currentTime = playdate.getCurrentTimeMilliseconds()
+        local updateScreenShake = function()
+            if not VFX.screenShake then
+                return
+            end
 
-        if currentTime < VFX.invertedEnd then
-            return
+            local magnitude = 5
+            local shakeX = math.random(-magnitude, magnitude)
+            local shakeY = math.random(-magnitude, magnitude)
+            playdate.display.setOffset(shakeX, shakeY)
+
+            local currentTime = playdate.getCurrentTimeMilliseconds()
+            if currentTime < VFX.screenShakeEnd then
+                return
+            end
+
+            playdate.display.setOffset(0, 0)
+            VFX.screenShake = false
         end
 
-        VFX.inverted = false
-        playdate.display.setInverted(false)
+        updateInverted()
+        updateScreenShake()
     end
 }

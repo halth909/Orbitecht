@@ -1,7 +1,7 @@
 SaveData = {
     data = {
         frameTarget = FRAME_TARGET_DEFAULT,
-        highScores = {{},{},{}},
+        highScores = {},
     },
     load = function()
         local saveData = playdate.datastore.read()
@@ -22,9 +22,12 @@ SaveData = {
         SaveData.data.frameTarget = value
         SaveData.apply()
     end,
-    addHighScore = function(playerCount, score)
-        local highScores = SaveData.data.highScores[playerCount]
+    addHighScore = function(score)
+        local highScores = SaveData.data.highScores
         table.insert(highScores, score)
+
+        printTable(highScores)
+
         table.sort(highScores, function(a, b) return a > b end)
 
         -- save 16 only

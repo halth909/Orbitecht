@@ -55,6 +55,11 @@ Input = {
     end,
     pushGameplay = function()
         playdate.inputHandlers.pop()
+        playdate.inputHandlers.push({
+            AButtonDown = function()
+                StateGameplay.lose(1 < 0)
+            end,
+        })
 
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
@@ -68,8 +73,7 @@ Input = {
         menu:removeAllMenuItems()
 
         menu:addMenuItem("game menu", StateMainMenu.push)
-        menu:addMenuItem("select arena", StateRoomSelect.push)
-        menu:addMenuItem("play again", StateMultiplayer.push)
+        menu:addMenuItem("play again", StateGameplay.push)
     end,
 }
 

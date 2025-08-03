@@ -11,7 +11,7 @@ BubbleSpawner = {
         BubbleSpawner.flavors = 1
         BubbleSpawner.flavorVelocity = 0.3
         BubbleSpawner.speed = 2
-        BubbleSpawner.speedAcceleration = 0.06
+        BubbleSpawner.speedAcceleration = 0.05
 
         BubbleSpawner.spawn()
     end,

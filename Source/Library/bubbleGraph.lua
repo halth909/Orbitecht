@@ -6,16 +6,33 @@ BubbleGraph = {
         table.insert(BubbleGraph.roots, node)
     end,
     resolveNodeCollision = function(node, bubble)
+        local flavor = bubble.flavor
+
+        if flavor == node.bubble.flavor then
+            local parent = node.parent
+            if parent ~= nil and flavor == parent.bubble.flavor then
+                print("POINTS")
+                StateGameplay.score += 10 * flavor
+                VFX.shakeScreen(300)
+            end
+        end
+
         local lwx = bubble.x - SPINNER_POSITION_X
         local lwy = bubble.y - SPINNER_POSITION_Y
         local spinnerAngleRadians = Spinner.angleRadians
         local radius, radians = Coordinates.cartesianToPolar(lwx, lwy)
+
         table.insert(node.children, {
             bubble = bubble,
             radius = radius,
             radians = radians - spinnerAngleRadians,
-            children = {}
+            parent = node,
+            children = {},
         })
+
+        if radius > SPINNER_RADIUS_OUTER then
+            StateGameplay.lose(lwx > 0)
+        end
     end,
     resolveNodeCollisions = function(node, bubble)
         if DEBUG then
@@ -110,4 +127,3 @@ BubbleGraph = {
         end
     end
 }
-

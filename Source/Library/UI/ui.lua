@@ -1,5 +1,6 @@
-import 'uiGameplay.lua'
 import 'uiMainMenu.lua'
+import 'uiGameplay.lua'
+import 'uiScoreboard.lua'
 import 'uiSlides.lua'
 
 local gfx = playdate.graphics
