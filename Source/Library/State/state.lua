@@ -1,6 +1,7 @@
 import '../timer.lua'
 import 'stateMainMenu.lua'
 import 'stateGameplay.lua'
+import 'stateSlides.lua'
 
 local gfx = playdate.graphics
 

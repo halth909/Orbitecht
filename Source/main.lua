@@ -27,5 +27,5 @@ import 'Library/input.lua'
 import 'Library/debug.lua'
 
 SaveData.load()
--- StateMainMenu.push()
-StateGameplay.push()
+StateMainMenu.push()
+-- StateGameplay.push()

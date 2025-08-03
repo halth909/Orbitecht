@@ -38,7 +38,7 @@ UISlides = {
             local lineY = y + yOffset + 25 * i
 
             if type(line) == "string" then
-                local width = Fonts.mythic:getTextWidth(line)
+                local width = Fonts.alphaOne:getTextWidth(line)
                 drawString(line, 200 - width / 2, lineY, kTextAlignment.left)
             else
                 drawString(line[1], 30, lineY, kTextAlignment.left)
@@ -50,10 +50,10 @@ UISlides = {
 
         gfx.clearStencil()
 
-        local pageText = string.format("%d/%d", StateSlides.page, #deck)
+        local pageText = string.format("%d OF %d", StateSlides.page, #deck)
         gfx.drawInvertedTextAligned(pageText, 380, 205, kTextAlignment.right)
 
         UI.drawFrame(400)
-        UIBottomBanner.draw("Ⓑ Return   Ⓐ Continue", 0, 10)
+        UIBottomBanner.draw("B RETURN   A CONTINUE", 0, 10)
     end
 }

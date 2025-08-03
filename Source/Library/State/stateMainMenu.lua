@@ -9,19 +9,19 @@ local easingFunctions = playdate.easingFunctions
 StateMainMenu = {
     options = {
         {
-            label = "Start",
+            label = "START",
             callback = StateGameplay.push,
             enabled = true,
         },
         {
-            label = "About",
+            label = "ABOUT",
             callback = function()
                 StateSlides.push(About)
             end,
             enabled = true,
         },
         {
-            label = "Credits",
+            label = "CREDITS",
             callback = function()
                 StateSlides.push(Credits)
             end,
