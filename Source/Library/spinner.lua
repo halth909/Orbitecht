@@ -5,6 +5,26 @@ local gfx = playdate.graphics
 
 Spinner = {
     angleRadians = 0,
+    resolveCollisions = function(bubble)
+        local lwx = bubble.x - SPINNER_POSITION_X
+        local lwy = bubble.y - SPINNER_POSITION_Y
+        local distance = math.sqrt(lwx * lwx + lwy * lwy)
+        local minDistance = SPINNER_RADIUS_INNER + bubble.radius
+        local collision = distance < minDistance
+
+        if not collision then
+            return bubble
+        end
+
+        local spinnerAngleRadians = Spinner.angleRadians
+        local radius, radians = Coordinates.cartesianToPolar(lwx, lwy)
+        BubbleGraph.addRoot({
+            bubble = bubble,
+            radius = radius,
+            radians = radians - spinnerAngleRadians,
+            children = {}
+        })
+    end,
     update = function()
         if playdate:isCrankDocked() then
             playdate.ui.crankIndicator:draw()

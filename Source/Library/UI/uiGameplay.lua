@@ -6,6 +6,6 @@ UIGameplay = {
         gfx.drawInvertedTextAligned("Bubble", 0, 20, kTextAlignment.left)
 
         gfx.drawInvertedTextAligned("Score", 400, 0, kTextAlignment.right)
-        gfx.drawInvertedTextAligned("1234", 400, 20, kTextAlignment.right)
+        gfx.drawInvertedTextAligned(StateGameplay.score, 400, 20, kTextAlignment.right)
     end
 }

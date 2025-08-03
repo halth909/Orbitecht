@@ -2,6 +2,7 @@ import 'CoreLibs/ui'
 import '../Audio/music.lua'
 
 StateGameplay = {
+    score = 0,
     push = function()
         State.reset()
 

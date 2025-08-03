@@ -4,29 +4,45 @@ import "Assets/Images"
 local gfx = playdate.graphics
 
 Bubbles = {
-    active = nil,
+    data = {},
 
     -- bubbles functions
     load = function()
         BubbleSpawner.load()
     end,
     update = function()
-        local active = Bubbles.active
-        active.x += active.vx
-        active.y += active.vy
+        local data = Bubbles.data
+        local bubble
 
-        active = BubbleGraph.resolveCollisions(active)
+        for i = #data, 1, -1 do
+            bubble = data[i]
+            bubble.x += bubble.vx
+            bubble.y += bubble.vy
 
-        if active == nil then
-            print("test 1")
+            bubble = Spinner.resolveCollisions(bubble)
+
+            if bubble ~= nil then
+                bubble = BubbleGraph.resolveCollisions(bubble)
+            end
+
+            if bubble == nil then
+                table.remove(data, i)
+            end
+        end
+
+        if #data == 0 then
             BubbleSpawner.spawn()
         end
     end,
     draw = function()
-        Bubbles.drawBubble(Bubbles.active)
+        local drawBubble = Bubbles.drawBubble
+        local data = Bubbles.data
+        for i = 1, #data, 1 do
+            drawBubble(data[i])
+        end
     end,
     unload = function()
-        Bubbles.active = {}
+        Bubbles.data = {}
     end,
 
     -- bubble functions
@@ -56,15 +72,14 @@ Bubbles = {
             ofy = 1
         end
 
-        print(x, y)
         gfx.setColor(gfx.kColorWhite)
 
         if offScreen then
             gfx.setLineWidth(1)
             gfx.drawRect((x - ofx * 5 - 5), (y - ofy * 5 - 5), 10, 10, bubble.radius)
-        else
-            gfx.fillCircleAtPoint(x, y, bubble.radius)
         end
+
+        Images.orbTable:draw(x, y)
     end,
 }
 

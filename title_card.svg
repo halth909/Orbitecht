@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   sodipodi:docname="title_card.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="275.37105"
+     inkscape:cy="246.3625"
+     inkscape:window-width="1512"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#848484;fill-opacity:1;stroke:none;stroke-width:6.85699;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1430"
+       width="253.89725"
+       height="198.20975"
+       x="0.62923712"
+       y="-2.2023296" />
+    <rect
+       style="fill:#000000;stroke-width:0.817549;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       id="rect184"
+       width="92.604164"
+       height="41.010418"
+       x="58.697922"
+       y="50.598602"
+       inkscape:export-filename="Source/Launcher/card.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-opacity:0.787234;paint-order:stroke fill markers"
+       x="69.602379"
+       y="76.811752"
+       id="text452"><tspan
+         sodipodi:role="line"
+         id="tspan450"
+         x="69.602379"
+         y="76.811752"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.1111px;font-family:Futura;-inkscape-font-specification:'Futura, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:1">Orbitecht</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path1376-9"
+       sodipodi:type="arc"
+       sodipodi:cx="167.39949"
+       sodipodi:cy="111.03812"
+       sodipodi:rx="99.457222"
+       sodipodi:ry="99.729301"
+       sodipodi:start="3.6208835"
+       sodipodi:end="3.4805895"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 79.148892,65.047945 A 99.457222,99.729301 0 0 1 210.14136,20.987814 99.457222,99.729301 0 0 1 258.64769,150.71282 99.457222,99.729301 0 0 1 131.05709,203.87091 99.457222,99.729301 0 0 1 73.602505,77.874015" />
+  </g>
+</svg>
