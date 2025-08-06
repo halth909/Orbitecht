@@ -55,11 +55,7 @@ Input = {
     end,
     pushGameplay = function()
         playdate.inputHandlers.pop()
-        playdate.inputHandlers.push({
-            AButtonDown = function()
-                StateGameplay.lose()
-            end,
-        })
+        playdate.inputHandlers.push({})
 
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
