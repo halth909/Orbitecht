@@ -13,6 +13,16 @@ Bubbles = {
     new = function(bubble)
         table.insert(Bubbles.data, bubble)
     end,
+    resetVelocity = function(bubble)
+        local vx, vy = bubble.vx, bubble.vy
+        local speed = math.sqrt(vx * vx + vy * vy)
+        local dx = SPINNER_POSITION_X - bubble.x
+        local dy = SPINNER_POSITION_Y - bubble.y
+        local distance = math.sqrt(dx * dx + dy * dy)
+        bubble.vx, bubble.vy = speed * dx / distance, speed * dy / distance
+
+        Bubbles.new(bubble)
+    end,
     update = function()
         local data = Bubbles.data
         local bubble

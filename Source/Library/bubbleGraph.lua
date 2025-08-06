@@ -6,14 +6,16 @@ BubbleGraph = {
         table.insert(BubbleGraph.roots, node)
     end,
     destroyChain = function(flavor, chainRoot)
+        print(flavor .. chainRoot.bubble.flavor)
+        printTable(chainRoot)
         local destroyChain = BubbleGraph.destroyChain
-        for i = #chainRoot.children, -1, 1 do
+        for i = #chainRoot.children, 1, -1 do
             local child = chainRoot.children[i]
             destroyChain(flavor, child)
         end
 
         if chainRoot.bubble.flavor ~= flavor then
-            table.insert(Bubbles.data, chainRoot.bubble)
+            Bubbles.resetVelocity(chainRoot.bubble)
         end
 
         if chainRoot.parent ~= nil then
@@ -61,9 +63,6 @@ BubbleGraph = {
         end
 
         local flavor = chainRoot.bubble.flavor
-        printTable(node)
-        printTable(bubble)
-        printTable(chainRoot)
         local chainLength = BubbleGraph.measureChain(flavor, chainRoot)
 
         if chainLength > 2 then

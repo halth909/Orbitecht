@@ -10,9 +10,9 @@ BubbleSpawner = {
     load = function()
         BubbleSpawner.count = 0
         BubbleSpawner.flavors = 1
-        BubbleSpawner.flavorVelocity = 0.3
+        BubbleSpawner.flavorVelocity = 0.2
         BubbleSpawner.speed = 2
-        BubbleSpawner.speedAcceleration = 0.05
+        BubbleSpawner.speedAcceleration = 0.04
 
         BubbleSpawner.bufferBubble()
         BubbleSpawner.spawn()
