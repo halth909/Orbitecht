@@ -8,15 +8,10 @@ UIScoreboard = {
         gfx.setColor(gfx.kColorBlack)
         gfx.fillRect(-80 * c, 0, 160, 240)
 
-        local sideOffset = 40
-        if StateScoreboard.rightSide then
-            sideOffset = 240
-        end
-
         local currentScore = StateScoreboard.currentScore
 
         local y = 20 - 40 * c
-        gfx.drawInvertedTextAligned("HIGH SCORES", sideOffset + 50, y, kTextAlignment.center)
+        gfx.drawInvertedTextAligned("HIGH SCORES", 90, y, kTextAlignment.center)
 
         local highScores = SaveData.data.highScores
         local highScoresCount = #highScores
@@ -25,7 +20,7 @@ UIScoreboard = {
         local yOffset = 180 * c
 
         for i = 8, 1, -1 do
-            local x = sideOffset
+            local x = 40
             y = yOffset + (i + 2) * 20
 
             local score = highScores[i]

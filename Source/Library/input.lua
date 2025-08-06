@@ -57,7 +57,7 @@ Input = {
         playdate.inputHandlers.pop()
         playdate.inputHandlers.push({
             AButtonDown = function()
-                StateGameplay.lose(1 < 0)
+                StateGameplay.lose()
             end,
         })
 

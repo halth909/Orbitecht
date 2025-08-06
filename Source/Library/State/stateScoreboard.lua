@@ -6,7 +6,6 @@ local easingFunctions = playdate.easingFunctions
 
 StateScoreboard = {
     currentScore = nil,
-    rightSide = nil,
     push = function()
         State.reset()
         State.uiAnimator = animator.new(1000, 1000, 0, easingFunctions.outQuad)

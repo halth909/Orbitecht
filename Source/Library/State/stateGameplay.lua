@@ -33,8 +33,7 @@ StateGameplay = {
             end
         end
     end,
-    lose = function(rightSide)
+    lose = function()
         StateGameplay.lossCondition = true
-        StateScoreboard.rightSide = rightSide
     end
 }
