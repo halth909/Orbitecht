@@ -6,8 +6,6 @@ BubbleGraph = {
         table.insert(BubbleGraph.roots, node)
     end,
     destroyChain = function(flavor, chainRoot)
-        print(flavor .. chainRoot.bubble.flavor)
-        printTable(chainRoot)
         local destroyChain = BubbleGraph.destroyChain
         for i = #chainRoot.children, 1, -1 do
             local child = chainRoot.children[i]
@@ -66,7 +64,6 @@ BubbleGraph = {
         local chainLength = BubbleGraph.measureChain(flavor, chainRoot)
 
         if chainLength > 2 then
-            print("POINTS")
             BubbleGraph.destroyChain(flavor, chainRoot)
             StateGameplay.score += bubble.flavor * chainLength * chainLength
             VFX.shakeScreen(300)
@@ -100,7 +97,6 @@ BubbleGraph = {
             bubble.x, bubble.y, bubble.radius)
 
         if collision then
-            print("COLLISION")
             bubble.x = x
             bubble.y = y
             BubbleGraph.resolveNodeCollision(node, bubble)
