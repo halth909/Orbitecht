@@ -10,6 +10,9 @@ Bubbles = {
     load = function()
         BubbleSpawner.load()
     end,
+    new = function(bubble)
+        table.insert(Bubbles.data, bubble)
+    end,
     update = function()
         local data = Bubbles.data
         local bubble

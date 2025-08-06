@@ -1,6 +1,7 @@
 import "events.lua"
 
 BubbleSpawner = {
+    buffer = nil,
     count = nil,
     flavors = nil,
     flavorVelocity = nil,
@@ -13,27 +14,31 @@ BubbleSpawner = {
         BubbleSpawner.speed = 2
         BubbleSpawner.speedAcceleration = 0.05
 
+        BubbleSpawner.bufferBubble()
         BubbleSpawner.spawn()
     end,
-    spawn = function()
+    bufferBubble = function()
         local angleDegrees = math.random(360)
         local radians = math.rad(angleDegrees)
         local vx = math.cos(radians)
         local vy = math.sin(radians)
-        table.insert(Bubbles.data, {
+
+        BubbleSpawner.buffer = {
             flavor = math.random(math.floor(BubbleSpawner.flavors)),
             radius = BUBBLE_RADIUS,
             x = SPINNER_POSITION_X - vx * BUBBLE_SPAWN_RADIUS,
             y = SPINNER_POSITION_Y - vy * BUBBLE_SPAWN_RADIUS,
             vx = vx * BubbleSpawner.speed,
             vy = vy * BubbleSpawner.speed
-        })
-
-        printTable(Bubbles.data)
+        }
 
         BubbleSpawner.flavors += BubbleSpawner.flavorVelocity
         BubbleSpawner.flavors = math.min(BUBBLE_FLAVORS, BubbleSpawner.flavors)
         BubbleSpawner.speed += BubbleSpawner.speedAcceleration
+    end,
+    spawn = function()
+        Bubbles.new(BubbleSpawner.buffer)
+        BubbleSpawner.bufferBubble()
     end,
     unload = function()
         Bubbles.data = {}

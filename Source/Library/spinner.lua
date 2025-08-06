@@ -6,17 +6,21 @@ local gfx = playdate.graphics
 Spinner = {
     angleRadians = 0,
     resolveCollisions = function(bubble)
-        local lwx = bubble.x - SPINNER_POSITION_X
-        local lwy = bubble.y - SPINNER_POSITION_Y
-        local distance = math.sqrt(lwx * lwx + lwy * lwy)
-        local minDistance = SPINNER_RADIUS_INNER + bubble.radius
-        local collision = distance < minDistance
+        local collision, x, y = Collision.resolve(
+            SPINNER_POSITION_X, SPINNER_POSITION_Y, SPINNER_RADIUS_INNER,
+            bubble.x, bubble.y, bubble.radius)
 
         if not collision then
             return bubble
         end
 
+        bubble.x = x
+        bubble.y = y
+
         local spinnerAngleRadians = Spinner.angleRadians
+
+        local lwx = bubble.x - SPINNER_POSITION_X
+        local lwy = bubble.y - SPINNER_POSITION_Y
         local radius, radians = Coordinates.cartesianToPolar(lwx, lwy)
         BubbleGraph.addRoot({
             bubble = bubble,

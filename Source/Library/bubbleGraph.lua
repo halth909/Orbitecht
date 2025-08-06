@@ -5,30 +5,74 @@ BubbleGraph = {
     addRoot = function(node)
         table.insert(BubbleGraph.roots, node)
     end,
-    resolveNodeCollision = function(node, bubble)
-        local flavor = bubble.flavor
-
-        if flavor == node.bubble.flavor then
-            local parent = node.parent
-            if parent ~= nil and flavor == parent.bubble.flavor then
-                print("POINTS")
-                StateGameplay.score += 10 * flavor
-                VFX.shakeScreen(300)
-            end
+    destroyChain = function(flavor, chainRoot)
+        local destroyChain = BubbleGraph.destroyChain
+        for i = #chainRoot.children, -1, 1 do
+            local child = chainRoot.children[i]
+            destroyChain(flavor, child)
         end
 
+        if chainRoot.bubble.flavor ~= flavor then
+            table.insert(Bubbles.data, chainRoot.bubble)
+        end
+
+        if chainRoot.parent ~= nil then
+            table.removeByReference(chainRoot.parent.children, chainRoot)
+        end
+
+        if table.contains(BubbleGraph.roots, chainRoot) then
+            table.removeByReference(BubbleGraph.roots, chainRoot)
+        end
+    end,
+    measureChain = function(flavor, chainRoot)
+        local measureChain = BubbleGraph.measureChain
+        local chainLength = 0
+
+        for i = #chainRoot.children, 1, -1 do
+            local child = chainRoot.children[i]
+            chainLength += measureChain(flavor, child)
+        end
+
+        if chainRoot.bubble.flavor == flavor then
+            chainLength += 1
+        end
+
+        return chainLength
+    end,
+    resolveNodeCollision = function(node, bubble)
         local lwx = bubble.x - SPINNER_POSITION_X
         local lwy = bubble.y - SPINNER_POSITION_Y
         local spinnerAngleRadians = Spinner.angleRadians
         local radius, radians = Coordinates.cartesianToPolar(lwx, lwy)
 
-        table.insert(node.children, {
+        local newNode = {
             bubble = bubble,
             radius = radius,
             radians = radians - spinnerAngleRadians,
             parent = node,
             children = {},
-        })
+        }
+
+        table.insert(node.children, newNode)
+
+        local chainRoot = newNode
+        while chainRoot.parent ~= nil and chainRoot.parent.bubble.flavor == chainRoot.bubble.flavor do
+            chainRoot = chainRoot.parent
+        end
+
+        local flavor = chainRoot.bubble.flavor
+        printTable(node)
+        printTable(bubble)
+        printTable(chainRoot)
+        local chainLength = BubbleGraph.measureChain(flavor, chainRoot)
+
+        if chainLength > 2 then
+            print("POINTS")
+            BubbleGraph.destroyChain(flavor, chainRoot)
+            StateGameplay.score += bubble.flavor * chainLength * chainLength
+            VFX.shakeScreen(300)
+            return
+        end
 
         if radius > SPINNER_RADIUS_OUTER then
             StateGameplay.lose(lwx > 0)
@@ -52,14 +96,14 @@ BubbleGraph = {
         end
 
         -- resolve self
-        local lwx = bubble.x - node.bubble.x
-        local lwy = bubble.y - node.bubble.y
-        local distance = math.sqrt(lwx * lwx + lwy * lwy)
-        local minDistance = node.bubble.radius + bubble.radius
-        local collision = distance < minDistance
+        local collision, x, y = Collision.resolve(
+            node.bubble.x, node.bubble.y, node.bubble.radius,
+            bubble.x, bubble.y, bubble.radius)
 
         if collision then
             print("COLLISION")
+            bubble.x = x
+            bubble.y = y
             BubbleGraph.resolveNodeCollision(node, bubble)
             bubble = nil
         end
