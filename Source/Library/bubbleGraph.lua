@@ -164,5 +164,8 @@ BubbleGraph = {
         for i = 1, #roots, 1 do
             drawNode(roots[i]);
         end
-    end
+    end,
+    unload = function()
+        BubbleGraph.roots = {}
+    end,
 }

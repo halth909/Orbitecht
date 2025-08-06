@@ -21,8 +21,7 @@ StateScoreboard = {
 
         function playdate.update()
             State.preUpdate()
-
-            StateScoreboard.backgroundImage:draw(0, 0)
+            
             UIScoreboard.draw()
 
             State.postUpdate()

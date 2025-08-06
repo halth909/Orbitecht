@@ -2,29 +2,31 @@ local gfx = playdate.graphics
 
 UIScoreboard = {
     draw = function()
-        -- UI.drawFrame(400)
-        local sideOffset = 0 
+        local c = State.uiAnimator:currentValue() / 1000
+        StateScoreboard.backgroundImage:draw(80 * (1 - c), 0)
+
+        gfx.setColor(gfx.kColorBlack)
+        gfx.fillRect(-80 * c, 0, 160, 240)
+
+        local sideOffset = 40
         if StateScoreboard.rightSide then
-            sideOffset = 200
+            sideOffset = 240
         end
 
         local currentScore = StateScoreboard.currentScore
-        local currentScoreText = math.floor(currentScore)
-        gfx.drawInvertedTextAligned(currentScoreText, 42, 162, kTextAlignment.center)
 
-        local c = State.uiAnimator:currentValue() / 1000
         local y = 20 - 40 * c
-        gfx.drawInvertedTextAligned("HIGH SCORES", 246, y, kTextAlignment.center)
+        gfx.drawInvertedTextAligned("HIGH SCORES", sideOffset + 50, y, kTextAlignment.center)
 
         local highScores = SaveData.data.highScores
         local highScoresCount = #highScores
         local highlighted = false
 
-        local offset = 180 * c
+        local yOffset = 180 * c
 
         for i = 8, 1, -1 do
-            local x = sideOffset + 130
-            y = offset + (i + 2) * 20
+            local x = sideOffset
+            y = yOffset + (i + 2) * 20
 
             local score = highScores[i]
             local scoreText
@@ -40,10 +42,12 @@ UIScoreboard = {
 
             if not highlighted and currentScore == score then
                 gfx.setColor(gfx.kColorXOR)
-                gfx.fillRoundRect(x - 10, y + 1, 130, 20, 4)
+                gfx.fillRoundRect(x - 15, y - 6, 130, 20, 4)
                 highlighted = true
             end
         end
+
+        UI.drawScore()
 
         UIBottomBanner.draw("[⊙] MENU", 45, 10)
     end

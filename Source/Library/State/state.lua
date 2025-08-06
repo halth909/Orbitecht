@@ -9,6 +9,9 @@ gfx.setBackgroundColor(gfx.kColorBlack)
 
 State = {
     reset = function()
+        Bubbles.unload()
+        BubbleGraph.unload()
+
         InputHelp.hide()
     end,
     preUpdate = function()
