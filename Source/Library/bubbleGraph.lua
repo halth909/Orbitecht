@@ -66,9 +66,11 @@ BubbleGraph = {
         if chainLength > 2 then
             BubbleGraph.destroyChain(flavor, chainRoot)
             StateGameplay.score += bubble.flavor * chainLength * chainLength
-            VFX.shakeScreen(300)
+            Event.orbCollect()
             return
         end
+
+        Event.orbImpact()
 
         if radius > SPINNER_RADIUS_OUTER then
             StateGameplay.lose(lwx > 0)

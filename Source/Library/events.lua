@@ -2,10 +2,10 @@ import 'Audio/SFX.lua'
 
 Event = {
     menuNext = function()
-        SFX.menuSelect.random()
+        SFX.menuSelect:play()
     end,
     menuPrevious = function()
-        SFX.menuSelect.random()
+        SFX.menuSelect:play()
     end,
     menuReturn = function()
         SFX.menuReturn:play()
@@ -14,21 +14,12 @@ Event = {
         SFX.menuAccept:play()
     end,
 
-    collectCoin = function()
-        SFX.pickupCoin:play()
+    orbImpact = function()
+        SFX.orbImpact:play()
+        VFX.shakeScreen(2)
     end,
-    collectDiamond = function()
-        SFX.pickupDiamond:play()
-    end,
-
-    collision = function()
-        SFX.collision:play()
-    end,
-
-    portalNone = function()
-        SFX.portalNone:play()
-    end,
-    portalDiamond = function()
-        SFX.portalDiamond:play()
+    orbCollect = function()
+        SFX.orbCollect:play()
+        VFX.shakeScreen(5)
     end,
 }

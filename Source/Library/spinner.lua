@@ -14,6 +14,8 @@ Spinner = {
             return bubble
         end
 
+        Event.orbImpact()
+
         bubble.x = x
         bubble.y = y
 
