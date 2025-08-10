@@ -7,7 +7,6 @@ UIMainMenu = {
     selectY = nil,
     draw = function()
         -- UI.drawFrame(400)
-
         local titleAnimator = State.uiAnimator
         local c = titleAnimator:currentValue() / 1000
 

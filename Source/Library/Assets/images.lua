@@ -11,7 +11,9 @@ Images = {
 
     titleLeft = playdate.graphics.image.new("Images/title_left"),
     titleRight = playdate.graphics.image.new("Images/title_right"),
-
+    
+    background = playdate.graphics.image.new("Images/background"),
+    scoreboardBackground = playdate.graphics.image.new("Images/scoreboard_background"),
 
     orbTable = playdate.graphics.imagetable.new("Images/orbs"),
     offscreenTable = playdate.graphics.imagetable.new("Images/offscreen")

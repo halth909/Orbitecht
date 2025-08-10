@@ -22,20 +22,20 @@ Input = {
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
 
-        local options = { "30 fps", "50 fps" }
-        local index = SaveData.data.frameTarget == FRAME_TARGET_HIGH and 2 or 1
+        -- local options = { "30 fps", "50 fps" }
+        -- local index = SaveData.data.frameTarget == FRAME_TARGET_HIGH and 2 or 1
 
-        menu:addOptionsMenuItem("graphics", options, options[index], function(value)
-            if value == options[1] then
-                SaveData.setFrameTarget(FRAME_TARGET_DEFAULT)
-            else
-                SaveData.setFrameTarget(FRAME_TARGET_HIGH)
-            end
-        end)
+        -- menu:addOptionsMenuItem("graphics", options, options[index], function(value)
+        --     if value == options[1] then
+        --         SaveData.setFrameTarget(FRAME_TARGET_DEFAULT)
+        --     else
+        --         SaveData.setFrameTarget(FRAME_TARGET_HIGH)
+        --     end
+        -- end)
 
-        menu:addCheckmarkMenuItem("debug", false, function(value)
-            DEBUG = value
-        end)
+        -- menu:addCheckmarkMenuItem("debug", false, function(value)
+        --     DEBUG = value
+        -- end)
     end,
     pushSlides = function()
         playdate.inputHandlers.pop()
@@ -59,6 +59,7 @@ Input = {
 
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
+        -- menu:addMenuItem("*skip*", StateScoreboard.push)
         menu:addMenuItem("game menu", StateMainMenu.push)
         menu:addMenuItem("restart", StateGameplay.push)
     end,

@@ -42,6 +42,8 @@ StateMainMenu = {
 
         function playdate.update()
             State.preUpdate()
+
+            UI.drawBackground()
             UIMainMenu.draw()
             State.postUpdate()
         end

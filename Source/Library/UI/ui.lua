@@ -21,6 +21,9 @@ UI = {
         image:draw(m, 240 - smm, gfx.kImageFlippedX)
         image:draw(width - smm, 240 - smm)
     end,
+    drawBackground = function()
+        Images.background:draw(0,0)
+    end,
     drawScore = function()
         gfx.drawInvertedTextAligned("SCORE", 400, 0, kTextAlignment.right)
         gfx.drawInvertedTextAligned(StateGameplay.score, 400, 20, kTextAlignment.right)

@@ -7,6 +7,8 @@ StateGameplay = {
     push = function()
         State.reset()
 
+        StateGameplay.score = 0
+        print(StateGameplay.score)
         StateGameplay.lossCondition = false
 
         Bubbles.load()
@@ -21,6 +23,7 @@ StateGameplay = {
             BubbleGraph.update()
             Bubbles.update()
 
+            UI.drawBackground()
             Spinner.draw()
             BubbleGraph.draw()
             Bubbles.draw()
@@ -35,5 +38,6 @@ StateGameplay = {
     end,
     lose = function()
         StateGameplay.lossCondition = true
-    end
+        Event.lose()
+    end,
 }

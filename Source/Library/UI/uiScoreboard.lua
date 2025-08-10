@@ -6,7 +6,7 @@ UIScoreboard = {
         StateScoreboard.backgroundImage:draw(80 * (1 - c), 0)
 
         gfx.setColor(gfx.kColorBlack)
-        gfx.fillRect(-80 * c, 0, 160, 240)
+        Images.scoreboardBackground:draw(-80 * c, 0)
 
         local currentScore = StateScoreboard.currentScore
 

@@ -22,4 +22,7 @@ Event = {
         SFX.orbCollect:play()
         VFX.shakeScreen(5)
     end,
+    lose = function()
+        SFX.menuReturn:play()
+    end,
 }
