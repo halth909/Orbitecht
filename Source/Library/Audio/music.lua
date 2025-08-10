@@ -5,6 +5,10 @@ MusicPlayer = {
         MusicPlayer.index = 1
         MusicPlayer.play()
         MusicPlayer.current:setFinishCallback(function()
+            if MusicPlayer.current == nil then
+                return
+            end
+            
             MusicPlayer.current:play()
         end)
     end,
