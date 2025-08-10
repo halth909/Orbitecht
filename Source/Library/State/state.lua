@@ -12,6 +12,7 @@ State = {
         Bubbles.unload()
         BubbleGraph.unload()
 
+        MusicPlayer.stop()
         InputHelp.hide()
     end,
     preUpdate = function()

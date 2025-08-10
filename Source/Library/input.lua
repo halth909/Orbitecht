@@ -60,6 +60,7 @@ Input = {
         local menu = playdate.getSystemMenu()
         menu:removeAllMenuItems()
         menu:addMenuItem("game menu", StateMainMenu.push)
+        menu:addMenuItem("restart", StateGameplay.push)
     end,
     pushScoreboard = function()
         playdate.inputHandlers.pop()

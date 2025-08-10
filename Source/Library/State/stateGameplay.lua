@@ -10,7 +10,7 @@ StateGameplay = {
         StateGameplay.lossCondition = false
 
         Bubbles.load()
-        MusicPlayer.play()
+        MusicPlayer.playGameplay()
 
         Input.pushGameplay()
 
